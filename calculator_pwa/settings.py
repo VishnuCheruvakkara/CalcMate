@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     'tailwind',
     'theme',
     'django_browser_reload'#remove in production
@@ -71,22 +70,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'calculator_pwa.wsgi.application'
-# ASGI implimentation
-ASGI_APPLICATION = 'calculator_pwa.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-   'default':{
-       'ENGINE':'djongo',
-       'NAME':env('DB_NAME'),
-       'CLIENT':{
-           'host':env('DB_HOST'),
-       }
-   }
+DATABASES={
+    'default':{
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':env('NAME'),
+        'USER':env('USER'),
+        'HOST':env('HOST'),
+        'PORT':env('PORT'),
+        'PASSWORD':env('PASSWORD'),
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
